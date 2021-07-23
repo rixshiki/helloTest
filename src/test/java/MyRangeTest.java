@@ -42,7 +42,7 @@ public class MyRangeTest {
         assertEquals(1, result);
     }
     @Test
-    @DisplayName("start number with ] (include)")
+    @DisplayName("end number with ] (include)")
     public void endNumberWithInclude(){
         MyRange myRange = new MyRange("[1,5]");
         int result = myRange.getEndNumber();
@@ -57,7 +57,7 @@ public class MyRangeTest {
         assertEquals(2, result);
     }
     @Test
-    @DisplayName("start number with ) (exclude)")
+    @DisplayName("end number with ) (exclude)")
     public void endNumberWithExclude(){
         MyRange myRange = new MyRange("[1,5)");
         int result = myRange.getEndNumber();
@@ -69,27 +69,27 @@ public class MyRangeTest {
     public void resultWithStartInStopIn(){
         MyRange myRange = new MyRange("[1,5]");
         String result = myRange.getResult();
-        assertEquals("12345", result);
+        assertEquals("1,2,3,4,5", result);
     }
     @Test
     @DisplayName("get result with [)")
     public void resultWithStartInStopEx(){
         MyRange myRange = new MyRange("[1,5)");
         String result = myRange.getResult();
-        assertEquals("1234", result);
+        assertEquals("1,2,3,4", result);
     }
     @Test
     @DisplayName("get result with ()")
     public void resultWithStartExStopEx(){
         MyRange myRange = new MyRange("(1,5)");
         String result = myRange.getResult();
-        assertEquals("234", result);
+        assertEquals("2,3,4", result);
     }
     @Test
     @DisplayName("get result with (]")
     public void resultWithStartExStopIn(){
         MyRange myRange = new MyRange("(1,5]");
         String result = myRange.getResult();
-        assertEquals("2345", result);
+        assertEquals("2,3,4,5", result);
     }
 }

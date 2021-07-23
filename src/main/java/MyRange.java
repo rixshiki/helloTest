@@ -29,6 +29,7 @@ public class MyRange {
         String result = "";
         for (int i = getStartNumber(); i <= getEndNumber(); i++){
             result +=  String.valueOf(i);
+            if(i != getEndNumber()) result += ',';
         }
         return result;
     }
